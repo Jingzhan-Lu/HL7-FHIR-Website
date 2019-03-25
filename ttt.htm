@@ -3,15 +3,16 @@
 <head>
     <meta charset="utf-8">
     <h1><br><u>放射科胸部檢查表單radiology chest check form</u><br><h1>
+   
 </head>
 <script type="text/javascript">
-       function check()
+       function checkn()
         {
                 if(reg.name.value == "")
                 {
                         alert("未輸入姓名");
                 }
-                
+
                 else reg.submit();
        }
        function checkt() {
@@ -20,87 +21,125 @@
            }
            else reg.submit();
        }
+       var patient = { "name": "Chalmers", "tel": 12345678, "gender": "male", "bir": "1974-12-25" };
+       function load()
+       {
+           document.getElementById("name").value = "Chalmers";
+           document.getElementById("tel").value = "12345678";
+           document.getElementById("gender").value = "male";
+           document.getElementById("age").value = "45";
+           document.getElementById("bir").value = "1974-12-25";  
+       }
+       function get()
+       {
+           var name_element = document.getElementById('name');
+           var name =name_element.value;
+          var age_element = document.getElementById('gender');
+           //var gender = gender_elemen.value;
+           //var age_element = document.getElementById("bir");
+           //var bir = bir_elemen.value;
+          // var work_element = document.getElementById("work");
+          // var work = work_elemen.value;
+          // var tel_element = document.getElementById("tel");
+          // var tel =tel_elemen.value;
+          // var age_element = document.getElementById("age");
+          // var age = age_elemen.value;
+           alert(name );
+       }
 </script>
 <body background="http://image.topit.cc/uploads/20180804/17/1533373232-DLWdIkvUul.jpg ">
     <form id="orderForm1" action="http://203.64.84.113/x/RQ_RS.aspx" method="post" name="reg">
         <h3> 病人基本資料Patient:<br></h3>
-        <h4>姓名：<input name="name" type="text" size="16" /><br></h4>
-        <input type="button" value="檢查姓名" onClick="check()" /> &nbsp;&nbsp;&nbsp;
+        <h4>姓名：<input id="name" type="text"  name="cname" value="" size="16" /><br></h4>
+     
+        <input type="button" value="檢查姓名" onClick="checkn()" /> &nbsp;&nbsp;&nbsp;
         <input type="reset" value="清除" />
-            <h4>性别Gender:<br></h4>
-            <input type="radio" name="gender" value="男性" checked> Male
-            <input type="radio" name="gender" value="女性"> Female <br>
-         
-            <h4>年齡Age:<input type="text" name="age" size="10"><br></h4>
-            <h4>生日Birth:<input type="text" name="bir" size="10"><br></h4>
-            <h4>電話號碼Tel:<input type="text" name="tel" size="10"><br></h4>
-        <input type="button" value="檢查電話" onClick="checkt()" /> &nbsp;&nbsp;&nbsp;
-        <input type="reset" value="清除" />
+       
 
-            <h4>職業Job:<select name="work"><br></h4>
+
+        <h4>性别Gender:<br></h4>
+        <input type="radio" id="gender" name="cmale" value="男性" checked> Male
+        <input type="radio" id="gender" name="cfemale" value="女性"> Female <br>
+
+        
+        <h4>生日Birth:<input type="text" id="bir"   name="cage" value="" size="10"><br></h4>
+        職業Job:<select name="work">
             <option value="Student" selected>學生
             <option value="Teacher">老師
             <option value="IT">IT
             <option value="Business">商業
-            <option value="Others">
-                其他
-                </select><br>
-                <h3>檢查項目類型Type:<br></h3>
-                <input type="checkbox" name="CT" value="CT">CT
-                <input type="checkbox" name="MRI" value="MRI">MRI
-                <input type="checkbox" name="X-ray" value="X-ray">X-ray<br><br>
-                <img src="http://cw1.tw/CH/images/article/H1377760222766.jpg"> <br>
-                <h3>Procedure:<br><input type="text" name="Procedure" value="PA and lateral views of the chest" size="20"><br></h3>
-                <h3>Clinical information:<br><textarea name="Clinical"></textarea><br></h3>
-                <h3>Comparison:<br><input type="text" name="ObjName" value="None." size="20"><br></h3>
-                <h3>
-                    檢查結果:<br>
-                    Fingding lungs：<select id="lung" name="檢查肺部"><br><br><br><br><br><br><br><br>
-                </h3>
-            <option value="1The lungs are clear." selected>The lungs are clear.
-            <option value="2The inspiratory volumes are small,and this probably accounts for some vascular crowding ahd atelectasis at the bases.">The inspiratory volumes are small,and this probably accounts for some vascular crowding ahd atelectasis at the bases.
-            <option value="3There is focal opacity at the right lung base most likelyrepresenting right lower lobe atelectasus.">There is focal opacity at the right lung base most likelyrepresenting right lower lobe atelectasus.
-            <option value="4There is focal opacity at the left lung base most likelyrepresenting right lower lobe atelectasus.">There is focal opacity at the left lung base most likelyrepresenting right lower lobe atelectasus.
-            <option value="5There is patchy opacity at both lung bases characteristic of atelectasis.">There is patchy opacity at both lung bases characteristic of atelectasis.
-            <option value="6There is patchy opacity at both lung bases characteristic of a combination of atelectasis and effusions.">There is patchy opacity at both lung bases characteristic of a combination of atelectasis and effusions.
-            <option value="7There is vascular congestion with increased interstital markings findings indicating mild cardiogenic edema.">There is vascular congestion with increased interstital markings findings indicating mild cardiogenic edema.
-            <option value="8There is vascular congestion with mixed interstital and patchy alveolar opacities,findingts indicating moderate cardiogenic edema.	">
-                There is vascular congestion with mixed interstital and patchy alveolar opacities,findingts indicating moderate cardiogenic edema.
-                option value="9There are multiple patchy areas of consolidation ,widely scattered about the lungs bilaterally.">There are multiple patchy areas of consolidation ,widely scattered about the lungs bilaterally.
-                option value="10There is mild pulmonary vascular engorgement without pulmonary edema.">There is mild pulmonary vascular engorgement without pulmonary edema.
-                </select><br>
-                <h3>Heart：<select id="Heart" name="檢查心臟"><br><br><br><br><br></h3>
-            <option value="1The heart is normal in size." selected>The heart is normal in size.
-            <option value="2There is mild cardiomegaly">There is mild cardiomegaly.
-            <option value="3There is moderate cardiomegaly.">There is moderate cardiomegaly.
-            <option value="4There is severe cardiomegaly.">There is severe cardiomegaly.
-            <option value="5There is marked cardiomegaly.">There is marked cardiomegaly.
-            <option value="6The heart is top normal in size.">
-                The heart is top normal in size.
-                </select><br>
-                <h3>Mediastinum：<select id="Med" name="縱膈"<br></h3>
-            <option value="1The mediastinum is within normal limits." selected>The mediastinum is within normal limits.
-            <option value="2Atherosclerotic calcifications are seen in the aorta.">Atherosclerotic calcifications are seen in the aorta.
-            <option value="3Post-operative changes are present in the mediastinum.">Post-operative changes are present in the mediastinum.
-            <option value="4The aortic contour is quite prominent,a finding likely indicating either an aortic aneurysm or dissection.">The aortic contour is quite prominent,a finding likely indicating either an aortic aneurysm or dissection.
-            <option value="5Degenerative changes are present in the thoracic spine.">
-                Degenerative changes are present in the thoracic spine.
-                </select><br>
-                <h3>Impression：<select id="Imp" name="印象"><br><br><br><br><br><br></h3>
-            <option value="1No active disease." selected>No active disease.
-            <option value="2Cardiomegaly.">Cardiomegaly.
-            <option value="3Mild cardiogenic edema.">Mild cardiogenic edema.
-            <option value="4Moderate cardiogenic edema.">Moderate cardiogenic edema.
-            <option value="5Severe edema,probably cardiogenic.">Severe edema,probably cardiogenic.
-            <option value="6Atelectasis">Atelectasis.
-            <option value="7Satisfactory post-operative status.">Satisfactory post-operative status.
-            <option value="8Pulmonary vacular congestion.">Pulmonary vacular congestion.
-            <option value="9Low inspiratory volumes.">Low inspiratory volumes.
-                </select><br>
-                <h3>其他:<br><textarea name="Others"></textarea><br></h3>
-                <input type="submit" value="傳送" onClick="check()" /> &nbsp;&nbsp;&nbsp;
-                <input type="reset" value="清除" />      
-</form>
+            <option value="Others">其他
+        </select><br>
+         <h4>電話號碼Tel:<input type="text" id="tel" name="ctel"  value=""  size="10"><br></h4>
+
+        <input type="button" value="檢查電話" onClick="checkt()" /> &nbsp;&nbsp;&nbsp;
+        <input type="reset" value="清除" />
+        
+        <h4>年齡Age:<input type="text" id="age" name="cage" value="" size="10"><br></h4>    
+            <br> <input type="button" value="填入預設資料" onClick="load()" /> &nbsp;&nbsp;&nbsp;
+            <input type="reset" value="清除" /></br>
+
+            <br> <input type="button" value="顯示已填資料" onClick="get()" /> &nbsp;&nbsp;&nbsp;
+            <input type="reset" value="清除" />
+
+            <h3>檢查項目類型Type:<br></h3>
+            <input type="checkbox" name="CT" value="CT">CT
+            <input type="checkbox" name="MRI" value="MRI">MRI
+            <input type="checkbox" name="X-ray" value="X-ray">X-ray<br><br>
+            <img src="http://cw1.tw/CH/images/article/H1377760222766.jpg"> <br>
+            <h3>Procedure:<br><input type="text" name="Procedure" value="PA and lateral views of the chest" size="20"><br></h3>
+            <h3>Clinical information:<br><textarea name="Clinical"></textarea><br></h3>
+            <h3>Comparison:<br><input type="text" name="ObjName" value="None." size="20"><br></h3>
+            <h3>
+                檢查結果:<br>
+                Fingding lungs：<select id="lung" name="檢查肺部"><br><br><br><br><br><br><br><br>
+            </h3>
+        <option value="1The lungs are clear." selected>The lungs are clear.
+        <option value="2The inspiratory volumes are small,and this probably accounts for some vascular crowding ahd atelectasis at the bases.">The inspiratory volumes are small,and this probably accounts for some vascular crowding ahd atelectasis at the bases.
+        <option value="3There is focal opacity at the right lung base most likelyrepresenting right lower lobe atelectasus.">There is focal opacity at the right lung base most likelyrepresenting right lower lobe atelectasus.
+        <option value="4There is focal opacity at the left lung base most likelyrepresenting right lower lobe atelectasus.">There is focal opacity at the left lung base most likelyrepresenting right lower lobe atelectasus.
+        <option value="5There is patchy opacity at both lung bases characteristic of atelectasis.">There is patchy opacity at both lung bases characteristic of atelectasis.
+        <option value="6There is patchy opacity at both lung bases characteristic of a combination of atelectasis and effusions.">There is patchy opacity at both lung bases characteristic of a combination of atelectasis and effusions.
+        <option value="7There is vascular congestion with increased interstital markings findings indicating mild cardiogenic edema.">There is vascular congestion with increased interstital markings findings indicating mild cardiogenic edema.
+        <option value="8There is vascular congestion with mixed interstital and patchy alveolar opacities,findingts indicating moderate cardiogenic edema.	">
+            There is vascular congestion with mixed interstital and patchy alveolar opacities,findingts indicating moderate cardiogenic edema.
+            option value="9There are multiple patchy areas of consolidation ,widely scattered about the lungs bilaterally.">There are multiple patchy areas of consolidation ,widely scattered about the lungs bilaterally.
+            option value="10There is mild pulmonary vascular engorgement without pulmonary edema.">There is mild pulmonary vascular engorgement without pulmonary edema.
+            </select><br>
+            <h3>Heart：<select id="Heart" name="檢查心臟"><br><br><br><br><br></h3>
+        <option value="1The heart is normal in size." selected>The heart is normal in size.
+        <option value="2There is mild cardiomegaly">There is mild cardiomegaly.
+        <option value="3There is moderate cardiomegaly.">There is moderate cardiomegaly.
+        <option value="4There is severe cardiomegaly.">There is severe cardiomegaly.
+        <option value="5There is marked cardiomegaly.">There is marked cardiomegaly.
+        <option value="6The heart is top normal in size.">
+            The heart is top normal in size.
+            </select><br>
+            <h3>Mediastinum：<select id="Med" name="縱膈"<br></h3>
+        <option value="1The mediastinum is within normal limits." selected>The mediastinum is within normal limits.
+        <option value="2Atherosclerotic calcifications are seen in the aorta.">Atherosclerotic calcifications are seen in the aorta.
+        <option value="3Post-operative changes are present in the mediastinum.">Post-operative changes are present in the mediastinum.
+        <option value="4The aortic contour is quite prominent,a finding likely indicating either an aortic aneurysm or dissection.">The aortic contour is quite prominent,a finding likely indicating either an aortic aneurysm or dissection.
+        <option value="5Degenerative changes are present in the thoracic spine.">
+            Degenerative changes are present in the thoracic spine.
+            </select><br>
+            <h3>Impression：<select id="Imp" name="印象"><br><br><br><br><br><br></h3>
+        <option value="1No active disease." selected>No active disease.
+        <option value="2Cardiomegaly.">Cardiomegaly.
+        <option value="3Mild cardiogenic edema.">Mild cardiogenic edema.
+        <option value="4Moderate cardiogenic edema.">Moderate cardiogenic edema.
+        <option value="5Severe edema,probably cardiogenic.">Severe edema,probably cardiogenic.
+        <option value="6Atelectasis">Atelectasis.
+        <option value="7Satisfactory post-operative status.">Satisfactory post-operative status.
+        <option value="8Pulmonary vacular congestion.">Pulmonary vacular congestion.
+        <option value="9Low inspiratory volumes.">  Low inspiratory volumes.
+            </select><br>
+            
+            <h3>其他:<br><textarea name="Others"></textarea></br></h3>
+            <input type="submit" value="傳送" onClick="check()" /> &nbsp;&nbsp;&nbsp;
+            <input type="reset" value="清除" />
+           
+        
+    </form>
 </body>
 </html>
-
