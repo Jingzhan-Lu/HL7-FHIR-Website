@@ -6,77 +6,92 @@
    
 </head>
 <script type="text/javascript">
-       function checkn()
-        {
-                if(reg.name.value == "")
-                {
-                        alert("未輸入姓名");
-                }
+    function checkn() {
+        if (reg.name.value == "") {
+            alert("未輸入姓名");
+        }
 
-                else reg.submit();
+        else reg.submit();
+    }
+    function checkt() {
+        if (isNaN(reg.tel.value)) {
+            alert("電話號碼只能為純數字");
+        }
+        else reg.submit();
+    }
+    var patient = { "name": "Chalmers", "tel": 12345678,  "age": "45", "bir": "1974-12-25" };
+
+    function load() {
+        document.getElementById("name").value = "Chalmers";
+        document.getElementById("tel").value = "12345678";
+        document.getElementById("age").value = "45";
+        document.getElementById("bir").value = "1974-12-25";
+    }
+
+    function get() {
+        var name_element = document.getElementById('name');
+        var name = name_element.value;
+        
+        var bir_element = document.getElementById('bir');
+        var bir = bir_element.value;
+
+        var tel_element = document.getElementById('tel');
+        var tel = tel_element.value;
+
+         var age_element = document.getElementById('age');
+        var age = age_element.value;
+
+        var job_element = document.getElementById('job');
+        var job = job_element.value;
+
+
+        var gender;
+         var M_element = document.getElementById('M');
+         var M = M_element.checked;
+         var F_element = document.getElementById('F');
+         var F = F_element.checked;
+
+        if (M) {
+            gender= M_element.value;
        }
-       function checkt() {
-           if (isNaN(reg.tel.value )) {
-               alert("電話號碼只能為純數字");
-           }
-           else reg.submit();
-       }
-       var patient = { "name": "Chalmers", "tel": 12345678, "gender": "male", "bir": "1974-12-25" };
-       function load()
-       {
-           document.getElementById("name").value = "Chalmers";
-           document.getElementById("tel").value = "12345678";
-           document.getElementById("gender").value = "male";
-           document.getElementById("age").value = "45";
-           document.getElementById("bir").value = "1974-12-25";  
-       }
-       function get()
-       {
-           var name_element = document.getElementById('name');
-           var name =name_element.value;
-          var age_element = document.getElementById('gender');
-           //var gender = gender_elemen.value;
-           //var age_element = document.getElementById("bir");
-           //var bir = bir_elemen.value;
-          // var work_element = document.getElementById("work");
-          // var work = work_elemen.value;
-          // var tel_element = document.getElementById("tel");
-          // var tel =tel_elemen.value;
-          // var age_element = document.getElementById("age");
-          // var age = age_elemen.value;
-           alert(name );
-       }
+        else
+            gender = F_element.value;
+
+
+        alert(name + '\n' + bir + '\n' + tel + '\n' + age + '\n' + job+ '\n' + gender + '\n');
+    }
+
+ 
+   
+
 </script>
 <body background="http://image.topit.cc/uploads/20180804/17/1533373232-DLWdIkvUul.jpg ">
     <form id="orderForm1" action="http://203.64.84.113/x/RQ_RS.aspx" method="post" name="reg">
         <h3> 病人基本資料Patient:<br></h3>
-        <h4>姓名：<input id="name" type="text"  name="cname" value="" size="16" /><br></h4>
-     
+        <h4>姓名Name：<input id="name" type="text"  name="cname" value="" size="16" /><br></h4>
         <input type="button" value="檢查姓名" onClick="checkn()" /> &nbsp;&nbsp;&nbsp;
-        <input type="reset" value="清除" />
+      
+
+        <h4>性別Gender:<br></h4>
+        <input type="radio" id="M" name="Gender" value="男性" checked> Male
+        <input type="radio" id="F" name="Gender" value="女性"> Female <br>
        
 
-
-        <h4>性别Gender:<br></h4>
-        <input type="radio" id="gender" name="cmale" value="男性" checked> Male
-        <input type="radio" id="gender" name="cfemale" value="女性"> Female <br>
-
-        
         <h4>生日Birth:<input type="text" id="bir"   name="cage" value="" size="10"><br></h4>
-        職業Job:<select name="work">
+
+         <h4>年齡Age:<input type="text" id="age" name="cage" value="" size="10"><br></h4>    
+        職業Job:<select id="job" name="work">
             <option value="Student" selected>學生
             <option value="Teacher">老師
             <option value="IT">IT
             <option value="Business">商業
             <option value="Others">其他
         </select><br>
-         <h4>電話號碼Tel:<input type="text" id="tel" name="ctel"  value=""  size="10"><br></h4>
 
-        <input type="button" value="檢查電話" onClick="checkt()" /> &nbsp;&nbsp;&nbsp;
-        <input type="reset" value="清除" />
-        
-        <h4>年齡Age:<input type="text" id="age" name="cage" value="" size="10"><br></h4>    
-            <br> <input type="button" value="填入預設資料" onClick="load()" /> &nbsp;&nbsp;&nbsp;
+         <h4>電話號碼Tel:<input type="text" id="tel" name="ctel"  value=""  size="10"><br></h4>
+          <input type="button" value="檢查電話" onClick="checkt()" /> &nbsp;&nbsp;&nbsp;
+           
+        <br> <input type="button" value="填入預設資料" onClick="load()" /> &nbsp;&nbsp;&nbsp;
             <input type="reset" value="清除" /></br>
 
             <br> <input type="button" value="顯示已填資料" onClick="get()" /> &nbsp;&nbsp;&nbsp;
@@ -136,8 +151,9 @@
             </select><br>
             
             <h3>其他:<br><textarea name="Others"></textarea></br></h3>
+
             <input type="submit" value="傳送" onClick="check()" /> &nbsp;&nbsp;&nbsp;
-            <input type="reset" value="清除" />
+      
            
         
     </form>
